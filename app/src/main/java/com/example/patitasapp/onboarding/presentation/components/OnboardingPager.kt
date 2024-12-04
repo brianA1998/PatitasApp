@@ -27,6 +27,7 @@ import androidx.compose.ui.unit.dp
 import com.example.patitasapp.R
 import com.example.patitasapp.core.presentation.PatitaButton
 import com.example.patitasapp.core.presentation.PatitasTitle
+import com.example.patitasapp.onboarding.presentation.OnboardingPagerInformation
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.HorizontalPagerIndicator

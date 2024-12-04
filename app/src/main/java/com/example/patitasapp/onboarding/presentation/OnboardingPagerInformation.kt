@@ -1,4 +1,4 @@
-package com.example.patitasapp.onboarding.presentation.components
+package com.example.patitasapp.onboarding.presentation
 
 import androidx.annotation.DrawableRes
 
