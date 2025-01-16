@@ -19,13 +19,13 @@ fun OnboardingScreen(
     val pages = listOf(
         OnboardingPagerInformation("Bienvenido a patitas App",
             "¡Un hogar para cada mascota, empieza acá!",
-            R.drawable.),
+            R.drawable.onboarding1),
         OnboardingPagerInformation("Tu compañero te espera",
             "Descubre mascotas que esperan por un hogar lleno de amor",
-            R.drawable.ic_launcher_foreground),
+            R.drawable.onboarding2),
         OnboardingPagerInformation("¡Todo listo para empezar!",
             "Tu próximo compañero está a un clic de distancia. ¡Vamos!",
-            R.drawable.ic_launcher_foreground),
+            R.drawable.onboarding3),
     )
 
     OnboardingPager(pages = pages, onFinish = {

@@ -6,9 +6,11 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -54,13 +56,16 @@ fun OnboardingPager(
                     .padding(20.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
+                Spacer(modifier = Modifier.height(32.dp))
                 PatitasTitle(title = information.title)
+                Spacer(modifier = Modifier.height(32.dp))
                 Image(
                     painter = painterResource(id = information.image),
                     contentDescription = "onboarding",
                     modifier = Modifier.aspectRatio(1f),
                     contentScale = ContentScale.FillHeight
                 )
+                Spacer(modifier = Modifier.height(32.dp))
                 Text(
                     information.subtitle.uppercase(),
                     style = MaterialTheme.typography.bodyLarge.copy(
@@ -70,39 +75,46 @@ fun OnboardingPager(
                 )
             }
         }
-    }
 
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(bottom = 64.dp, start = 16.dp, end = 16.dp),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.SpaceBetween
-    ) {
 
-        if (pagerState.currentPage == pages.lastIndex) {
-            PatitaButton(
-                stringResource(id = R.string.get_started),
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                onFinish()
-            }
-        } else {
-            TextButton(onClick = onFinish) {
-                Text(stringResource(id = R.string.skip), color = MaterialTheme.colorScheme.tertiary)
-            }
+        Row(
+            modifier = Modifier
+                .fillMaxWidth().align(Alignment.BottomCenter)
+                .padding(bottom = 64.dp, start = 16.dp, end = 16.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
 
-            HorizontalPagerIndicator(
-                pagerState = pagerState,
-                activeColor = MaterialTheme.colorScheme.tertiary,
-                inactiveColor = MaterialTheme.colorScheme.primary
-            )
-            TextButton(onClick = {
-                coroutineScope.launch {
-                    pagerState.animateScrollToPage(pagerState.currentPage + 1)
+            if (pagerState.currentPage == pages.lastIndex) {
+                PatitaButton(
+                    stringResource(id = R.string.get_started),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    onFinish()
                 }
-            }) {
-                Text(stringResource(id = R.string.next), color = MaterialTheme.colorScheme.tertiary)
+            } else {
+                TextButton(onClick = onFinish) {
+                    Text(
+                        stringResource(id = R.string.skip),
+                        color = MaterialTheme.colorScheme.tertiary
+                    )
+                }
+
+                HorizontalPagerIndicator(
+                    pagerState = pagerState,
+                    activeColor = MaterialTheme.colorScheme.tertiary,
+                    inactiveColor = MaterialTheme.colorScheme.primary
+                )
+                TextButton(onClick = {
+                    coroutineScope.launch {
+                        pagerState.animateScrollToPage(pagerState.currentPage + 1)
+                    }
+                }) {
+                    Text(
+                        stringResource(id = R.string.next),
+                        color = MaterialTheme.colorScheme.tertiary
+                    )
+                }
             }
         }
     }
