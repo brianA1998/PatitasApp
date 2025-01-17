@@ -7,9 +7,10 @@ import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.ui.Modifier
-import com.example.patitasapp.onboarding.presentation.OnboardingScreen
+import androidx.navigation.compose.rememberNavController
+import com.example.patitasapp.navigation.NavigationHost
+import com.example.patitasapp.navigation.NavigationRoute
 import com.example.patitasapp.ui.theme.PatitasAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -26,9 +27,18 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    OnboardingScreen(onFinish = { viewModel.hasSeenOnboarding })
+                    val navController = rememberNavController()
+                    NavigationHost(navHostController = navController, startDestination = getStartDestination())
                 }
             }
+        }
+    }
+
+    private fun getStartDestination(): NavigationRoute {
+        return if (viewModel.hasSeenOnboarding) {
+            NavigationRoute.Login
+        } else {
+            NavigationRoute.Onboarding
         }
     }
 }
