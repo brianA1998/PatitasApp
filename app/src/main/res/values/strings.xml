@@ -1,8 +1,13 @@
 <resources>
     <string name="app_name">PatitasApp</string>
-
     <!-- Onboarding strings -->
     <string name="skip">Skip</string>
     <string name="next">Next</string>
     <string name="get_started">Get Started</string>
+    <string name="onboarding_title_1">Bienvenido a patitas App</string>
+    <string name="onboarding_subtitle_1">¡Un hogar para cada mascota, empieza acá!</string>
+    <string name="onboarding_title_2">Tu compañero te espera</string>
+    <string name="onboarding_subtitle_2">Descubre mascotas que esperan por un hogar lleno de amor</string>
+    <string name="onboarding_title_3">¡Todo listo para empezar!</string>
+    <string name="onboarding_subtitle_3">Tu próximo compañero está a un click de distancia. ¡Vamos!</string>
 </resources>
