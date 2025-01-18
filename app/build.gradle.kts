@@ -4,7 +4,7 @@ plugins {
     kotlin("android")
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
-  //  id("com.google.gms.google-services")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -88,7 +88,7 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:2.5.3")
 
     // Firebase
-    implementation(platform("com.google.firebase:firebase-bom:31.2.2"))
+    implementation(platform("com.google.firebase:firebase-bom:33.8.0"))
     implementation("com.google.firebase:firebase-analytics-ktx")
     implementation("com.google.firebase:firebase-auth-ktx")
     implementation("com.google.android.gms:play-services-auth:20.4.1")
