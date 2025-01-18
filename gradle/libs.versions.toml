@@ -22,6 +22,7 @@ retrofitVersion = "2.9.0"
 roomVersion = "2.5.0"
 timePicker = "1.1.0"
 turbineVersion = "0.7.0"
+uiVersion = "1.4.0"
 workmanagerVersion = "2.8.0"
 firebaseBom = "31.2.2"
 minSdk = "24"
@@ -48,6 +49,7 @@ androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "
 androidx-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "composeVersion" }
 androidx-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "composeVersion" }
 androidx-ui-test-junit4 = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "composeVersion" }
+androidx-ui-v140 = { module = "androidx.compose.ui:ui", version.ref = "uiVersion" }
 androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "workmanagerVersion" }
 androidx-work-testing = { module = "androidx.work:work-testing", version.ref = "workmanagerVersion" }
 clock = { module = "com.maxkeppeler.sheets-compose-dialogs:clock", version.ref = "timePicker" }
