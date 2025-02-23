@@ -9,7 +9,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material.MaterialTheme
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
@@ -38,7 +38,7 @@ fun LoginScreen(
 
     Box(modifier = Modifier.fillMaxSize()) {
         Image(
-            painter = painterResource(id = R.drawable.loginBackground),
+            painter = painterResource(id = R.drawable.loginbackground),
             contentDescription = "background",
             contentScale = ContentScale.Crop,
             modifier = Modifier
@@ -55,8 +55,8 @@ fun LoginScreen(
                     Brush.verticalGradient(
                         colors = listOf(
                             Color.Transparent,
-                            MaterialTheme.colors.primary,
-                            MaterialTheme.colors.secondary
+                            androidx.compose.material.MaterialTheme.colors.primary,
+                            androidx.compose.material.MaterialTheme.colors.secondary
                         )
                     )
                 )
@@ -72,7 +72,7 @@ fun LoginScreen(
                 PatitasTitle(title = "Inicia sesión y únete a")
                 PatitasTitle(title = "la comunidad")
             }
-            LoginForm(state, viewModel::onEvent, onSignUp)
+//            LoginForm(state, viewModel::onEvent, onSignUp)
         }
     }
 
