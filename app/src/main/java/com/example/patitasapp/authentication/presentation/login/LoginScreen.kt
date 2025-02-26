@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
@@ -21,6 +20,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.patitasapp.R
+import com.example.patitasapp.authentication.presentation.login.components.LoginForm
 import com.example.patitasapp.core.presentation.PatitasTitle
 
 @Composable
@@ -72,7 +72,7 @@ fun LoginScreen(
                 PatitasTitle(title = "Inicia sesión y únete a")
                 PatitasTitle(title = "la comunidad")
             }
-//            LoginForm(state, viewModel::onEvent, onSignUp)
+           LoginForm(state, viewModel::onEvent)
         }
     }
 
