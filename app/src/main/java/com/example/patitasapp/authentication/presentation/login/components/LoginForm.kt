@@ -14,6 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.example.patitasapp.authentication.presentation.login.LoginEvent
 import com.example.patitasapp.authentication.presentation.login.LoginState
+import com.example.patitasapp.core.presentation.PatitasTextField
 
 @Composable
 fun LoginForm(state: LoginState, loginEvent: (LoginEvent) -> Unit) {
@@ -29,7 +30,15 @@ fun LoginForm(state: LoginState, loginEvent: (LoginEvent) -> Unit) {
             )
             Divider(Modifier.padding(16.dp))
 
-
+            PatitasTextField(
+                value = state.email,
+                onValueChange = { loginEvent(LoginEvent.EmailChanged(it)) },
+                contentDescription = "Email",
+                placeholder = "Email",
+                errorMessage = state.emailError,
+                leadingIcon = null,
+                isEnabled = state.isLoading.not()
+            )
 
         }
     }

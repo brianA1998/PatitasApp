@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
@@ -55,8 +56,8 @@ fun LoginScreen(
                     Brush.verticalGradient(
                         colors = listOf(
                             Color.Transparent,
-                            androidx.compose.material.MaterialTheme.colors.primary,
-                            androidx.compose.material.MaterialTheme.colors.secondary
+                            MaterialTheme.colorScheme.background,
+                            MaterialTheme.colorScheme.background
                         )
                     )
                 )
@@ -67,7 +68,8 @@ fun LoginScreen(
             Spacer(modifier = Modifier)
             Column(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalAlignment = Alignment.CenterHorizontally
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Top
             ) {
                 PatitasTitle(title = "Inicia sesión y únete a")
                 PatitasTitle(title = "la comunidad")

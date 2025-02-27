@@ -5,6 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.patitasapp.authentication.presentation.login.LoginScreen
 import com.example.patitasapp.onboarding.presentation.OnboardingScreen
 
 @Composable
@@ -24,7 +25,12 @@ fun NavigationHost(
             )
         }
         composable(NavigationRoute.Login.route) {
-            Text("Login Screen")
+            LoginScreen(
+                onLogin = {
+                    navHostController.popBackStack()
+                    navHostController.navigate(NavigationRoute.Onboarding.route)
+                }
+            )
         }
     }
 }
