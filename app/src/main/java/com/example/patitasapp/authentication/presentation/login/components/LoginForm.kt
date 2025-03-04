@@ -3,43 +3,132 @@ package com.example.patitasapp.authentication.presentation.login.components
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Divider
 import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Email
+import androidx.compose.material.icons.outlined.Lock
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusDirection
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import com.example.patitasapp.authentication.presentation.login.LoginEvent
 import com.example.patitasapp.authentication.presentation.login.LoginState
+import com.example.patitasapp.core.presentation.PatitasButton
+import com.example.patitasapp.core.presentation.PatitasPasswordTextField
 import com.example.patitasapp.core.presentation.PatitasTextField
 
 @Composable
-fun LoginForm(state: LoginState, loginEvent: (LoginEvent) -> Unit) {
+fun LoginForm(state: LoginState, loginEvent: (LoginEvent) -> Unit, modifier: Modifier = Modifier) {
 
-    Box(modifier = Modifier, contentAlignment = Alignment.Center) {
+    val focusManager = LocalFocusManager.current
+
+    Box(modifier = modifier, contentAlignment = Alignment.Center) {
         Column(
             modifier = Modifier.background(Color.White, shape = RoundedCornerShape(20.dp)),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                "Login in with email", modifier = Modifier.padding(16.dp),
+                "Login in with email", modifier = Modifier.padding(12.dp),
                 color = Color.Black
             )
-            Divider(Modifier.padding(16.dp))
+
+            Divider(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 16.dp)
+            )
 
             PatitasTextField(
                 value = state.email,
                 onValueChange = { loginEvent(LoginEvent.EmailChanged(it)) },
-                contentDescription = "Email",
+                contentDescription = "Enter email",
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 6.dp)
+                    .padding(horizontal = 20.dp),
                 placeholder = "Email",
                 errorMessage = state.emailError,
-                leadingIcon = null,
-                isEnabled = state.isLoading.not()
+                leadingIcon = Icons.Outlined.Email,
+                isEnabled = !state.isLoading,
+                keyboardOptions = KeyboardOptions(
+                    autoCorrect = false,
+                    keyboardType = KeyboardType.Email,
+                    imeAction = ImeAction.Next
+                ),
+                keyboardActions = KeyboardActions(onAny = {
+                    focusManager.moveFocus(FocusDirection.Next)
+                }),
             )
+
+            PatitasPasswordTextField(
+                value = state.password,
+                onValueChange = { loginEvent(LoginEvent.PasswordChanged(it)) },
+                contentDescription = "Enter password",
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 6.dp)
+                    .padding(horizontal = 20.dp),
+                placeholder = "Password",
+                errorMessage = state.passwordError,
+                leadingIcon = Icons.Outlined.Lock,
+                isEnabled = !state.isLoading,
+                keyboardOptions = KeyboardOptions(
+                    autoCorrect = false,
+                    keyboardType = KeyboardType.Password,
+                    imeAction = ImeAction.Done
+                ),
+                keyboardActions = KeyboardActions(onAny = {
+                    focusManager.clearFocus()
+//                    onEvent(LoginEvent.Login)
+                }),
+            )
+
+            PatitasButton(
+                text = "Login",
+                isEnabled = !state.isLoading,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 20.dp),
+            ) {
+//                onEvent(LoginEvent.Login)
+            }
+
+            TextButton(onClick = { /*TODO*/ }) {
+                Text(
+                    text = "Forgot Password?",
+                    color = MaterialTheme.colorScheme.tertiary,
+                    textDecoration = TextDecoration.Underline
+                )
+            }
+
+            TextButton(onClick = { /*TODO*/ }) {
+                Text(
+                    text = "Forgot Password heavy?",
+                    color = MaterialTheme.colorScheme.tertiary,
+                    textDecoration = TextDecoration.Underline
+                )
+            }
+        }
+
+            if (state.isLoading) {
+                CircularProgressIndicator()
+            }
 
         }
     }
-}
+

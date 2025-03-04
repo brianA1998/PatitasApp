@@ -49,19 +49,19 @@ fun LoginScreen(
                     scaleY = 1.27f
                 )
         )
-        Spacer(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(
-                    Brush.verticalGradient(
-                        colors = listOf(
-                            Color.Transparent,
-                            MaterialTheme.colorScheme.background,
-                            MaterialTheme.colorScheme.background
-                        )
-                    )
-                )
-        )
+//        Spacer(
+//            modifier = Modifier
+//                .fillMaxSize()
+//                .background(
+//                    Brush.verticalGradient(
+//                        colors = listOf(
+//                            Color.Transparent,
+//                            MaterialTheme.colorScheme.background,
+//                            MaterialTheme.colorScheme.background
+//                        )
+//                    )
+//                )
+//        )
 
         Column(modifier = Modifier.fillMaxSize(), verticalArrangement = Arrangement.SpaceBetween) {
             Spacer(modifier = Modifier)
@@ -69,14 +69,11 @@ fun LoginScreen(
             Column(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Top
             ) {
                 PatitasTitle(title = "Inicia sesión y únete a")
                 PatitasTitle(title = "la comunidad")
             }
-           LoginForm(state, viewModel::onEvent)
+            LoginForm(state, viewModel::onEvent)
         }
     }
-
-
 }

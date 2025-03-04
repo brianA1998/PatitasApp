@@ -31,7 +31,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.patitasapp.R
-import com.example.patitasapp.core.presentation.PatitaButton
+import com.example.patitasapp.core.presentation.PatitasButton
 import com.example.patitasapp.core.presentation.PatitasTitle
 import com.example.patitasapp.onboarding.presentation.OnboardingPagerInformation
 import com.google.accompanist.pager.ExperimentalPagerApi
@@ -92,7 +92,7 @@ fun OnboardingPager(
         ) {
 
             if (pagerState.currentPage == pages.lastIndex) {
-                PatitaButton(
+                PatitasButton(
                     stringResource(id = R.string.get_started),
                     modifier = Modifier.fillMaxWidth()
                 ) {
