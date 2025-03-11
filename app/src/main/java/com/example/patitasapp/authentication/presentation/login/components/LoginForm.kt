@@ -33,7 +33,7 @@ import com.example.patitasapp.core.presentation.PatitasPasswordTextField
 import com.example.patitasapp.core.presentation.PatitasTextField
 
 @Composable
-fun LoginForm(state: LoginState, loginEvent: (LoginEvent) -> Unit, modifier: Modifier = Modifier) {
+fun LoginForm(state: LoginState, onEvent: (LoginEvent) -> Unit, modifier: Modifier = Modifier) {
 
     val focusManager = LocalFocusManager.current
 
@@ -50,12 +50,13 @@ fun LoginForm(state: LoginState, loginEvent: (LoginEvent) -> Unit, modifier: Mod
             Divider(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(bottom = 16.dp)
+                    .padding(bottom = 16.dp),
+                color = MaterialTheme.colorScheme.background
             )
 
             PatitasTextField(
                 value = state.email,
-                onValueChange = { loginEvent(LoginEvent.EmailChanged(it)) },
+                onValueChange = { onEvent(LoginEvent.EmailChanged(it)) },
                 contentDescription = "Enter email",
                 modifier = Modifier
                     .fillMaxWidth()
@@ -77,7 +78,7 @@ fun LoginForm(state: LoginState, loginEvent: (LoginEvent) -> Unit, modifier: Mod
 
             PatitasPasswordTextField(
                 value = state.password,
-                onValueChange = { loginEvent(LoginEvent.PasswordChanged(it)) },
+                onValueChange = { onEvent(LoginEvent.PasswordChanged(it)) },
                 contentDescription = "Enter password",
                 modifier = Modifier
                     .fillMaxWidth()
@@ -94,7 +95,7 @@ fun LoginForm(state: LoginState, loginEvent: (LoginEvent) -> Unit, modifier: Mod
                 ),
                 keyboardActions = KeyboardActions(onAny = {
                     focusManager.clearFocus()
-//                    onEvent(LoginEvent.Login)
+                   onEvent(LoginEvent.Login)
                 }),
             )
 
@@ -105,7 +106,7 @@ fun LoginForm(state: LoginState, loginEvent: (LoginEvent) -> Unit, modifier: Mod
                     .fillMaxWidth()
                     .padding(horizontal = 20.dp),
             ) {
-//                onEvent(LoginEvent.Login)
+               onEvent(LoginEvent.Login)
             }
 
             TextButton(onClick = { /*TODO*/ }) {
