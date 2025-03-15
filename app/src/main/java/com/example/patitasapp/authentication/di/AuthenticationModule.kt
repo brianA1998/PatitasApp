@@ -7,6 +7,8 @@ import com.example.patitasapp.authentication.domain.repository.AuthenticationRep
 import com.example.patitasapp.authentication.domain.usecase.GetUserIdUseCase
 import com.example.patitasapp.authentication.domain.usecase.LoginUseCases
 import com.example.patitasapp.authentication.domain.usecase.LoginWithEmailUseCase
+import com.example.patitasapp.authentication.domain.usecase.SignUpUseCases
+import com.example.patitasapp.authentication.domain.usecase.SignUpWithEmailUseCase
 import com.example.patitasapp.authentication.domain.usecase.ValidateEmailUseCase
 import com.example.patitasapp.authentication.domain.usecase.ValidatePasswordUseCase
 import dagger.Module
@@ -41,6 +43,19 @@ object AuthenticationModule {
             validateEmailUseCase = ValidateEmailUseCase(emailMatcher),
             validatePasswordUseCase = ValidatePasswordUseCase(),
             loginWithEmailUseCase = LoginWithEmailUseCase(authenticationRepository)
+        )
+    }
+
+    @Provides
+    @Singleton
+    fun provideSignupUseCases(
+        emailMatcher: EmailMatcher,
+        authenticationRepository: AuthenticationRepository
+    ): SignUpUseCases {
+        return SignUpUseCases(
+            validateEmailUseCase = ValidateEmailUseCase(emailMatcher),
+            validatePasswordUseCase = ValidatePasswordUseCase(),
+            signUpWithEmailUseCase = SignUpWithEmailUseCase(authenticationRepository)
         )
     }
 
