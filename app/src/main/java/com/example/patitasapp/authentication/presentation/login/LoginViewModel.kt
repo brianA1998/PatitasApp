@@ -30,7 +30,6 @@ class LoginViewModel @Inject constructor(
             }
 
             is LoginEvent.Login -> {
-                println("Entre al login")
                 login()
             }
         }

@@ -4,6 +4,7 @@ import com.example.patitasapp.authentication.data.matcher.EmailMatcherImpl
 import com.example.patitasapp.authentication.data.repository.AuthenticationRepositoryImpl
 import com.example.patitasapp.authentication.domain.matcher.EmailMatcher
 import com.example.patitasapp.authentication.domain.repository.AuthenticationRepository
+import com.example.patitasapp.authentication.domain.usecase.GetUserIdUseCase
 import com.example.patitasapp.authentication.domain.usecase.LoginUseCases
 import com.example.patitasapp.authentication.domain.usecase.LoginWithEmailUseCase
 import com.example.patitasapp.authentication.domain.usecase.ValidateEmailUseCase
@@ -43,6 +44,11 @@ object AuthenticationModule {
         )
     }
 
+    @Provides
+    @Singleton
+    fun provideGetUserIdUseCase(repository: AuthenticationRepository): GetUserIdUseCase {
+        return GetUserIdUseCase(repository)
+    }
 
 
 }

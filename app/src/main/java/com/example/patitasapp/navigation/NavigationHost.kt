@@ -28,9 +28,13 @@ fun NavigationHost(
             LoginScreen(
                 onLogin = {
                     navHostController.popBackStack()
-                    navHostController.navigate(NavigationRoute.Onboarding.route)
+                    navHostController.navigate(NavigationRoute.Home.route)
                 }
             )
+        }
+
+        composable(NavigationRoute.Home.route) {
+            Text("Estamos en Home Screen")
         }
     }
 }
