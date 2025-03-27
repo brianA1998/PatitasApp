@@ -6,19 +6,21 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.patitasapp.R
 import com.example.patitasapp.authentication.presentation.signup.components.SignupForm
 
 @Composable
 fun SignUpScreen(
-    onSignUp: () -> Unit,
+    onSignIn: () -> Unit,
     onLogin: () -> Unit,
     viewmodel: SignUpViewModel = hiltViewModel()
 ) {
@@ -26,7 +28,7 @@ fun SignUpScreen(
 
     LaunchedEffect(state.isSignedIn) {
         if (state.isSignedIn) {
-            onSignUp()
+            onSignIn()
         }
     }
 
@@ -41,7 +43,7 @@ fun SignUpScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceAround
     ) {
-        Image(painter = painterResource(id = R.drawable.signup), contentDescription = null)
+        Image(painter = painterResource(id = R.drawable.signup), contentDescription = "Signup Image", modifier = Modifier.size(width = 315.dp, height = 298.dp))
         SignupForm(state = state, onEvent = viewmodel::onEvent, modifier = Modifier.fillMaxWidth())
     }
 

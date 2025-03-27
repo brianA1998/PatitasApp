@@ -22,9 +22,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusDirection
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import com.example.patitasapp.authentication.presentation.login.LoginEvent
 import com.example.patitasapp.authentication.presentation.login.LoginState
@@ -33,7 +37,7 @@ import com.example.patitasapp.core.presentation.PatitasPasswordTextField
 import com.example.patitasapp.core.presentation.PatitasTextField
 
 @Composable
-fun LoginForm(state: LoginState, onEvent: (LoginEvent) -> Unit, modifier: Modifier = Modifier) {
+fun LoginForm(state: LoginState, onEvent: (LoginEvent) -> Unit, onSignUp: () -> Unit, modifier: Modifier = Modifier) {
 
     val focusManager = LocalFocusManager.current
 
@@ -117,9 +121,14 @@ fun LoginForm(state: LoginState, onEvent: (LoginEvent) -> Unit, modifier: Modifi
                 )
             }
 
-            TextButton(onClick = { /*TODO*/ }) {
+            TextButton(onClick =  onSignUp ) {
                 Text(
-                    text = "Forgot Password heavy?",
+                    text = buildAnnotatedString {
+                        append("Don't have an account? ")
+                        withStyle(SpanStyle(fontWeight = FontWeight.Bold)) {
+                            append("Sign up")
+                        }
+                    },
                     color = MaterialTheme.colorScheme.tertiary,
                     textDecoration = TextDecoration.Underline
                 )

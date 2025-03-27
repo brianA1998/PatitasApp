@@ -27,6 +27,7 @@ import com.example.patitasapp.core.presentation.PatitasTitle
 @Composable
 fun LoginScreen(
     onLogin: () -> Unit,
+    onSignUp: () -> Unit,
     viewModel: LoginViewModel = hiltViewModel()
 ) {
     val state = viewModel.state
@@ -73,7 +74,7 @@ fun LoginScreen(
                 PatitasTitle(title = "Inicia sesión y únete a")
                 PatitasTitle(title = "la comunidad")
             }
-            LoginForm(state, viewModel::onEvent)
+            LoginForm(state, viewModel::onEvent, onSignUp)
         }
     }
 }

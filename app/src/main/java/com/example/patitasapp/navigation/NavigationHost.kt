@@ -6,6 +6,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.patitasapp.authentication.presentation.login.LoginScreen
+import com.example.patitasapp.authentication.presentation.signup.SignUpScreen
 import com.example.patitasapp.onboarding.presentation.OnboardingScreen
 
 @Composable
@@ -29,6 +30,24 @@ fun NavigationHost(
                 onLogin = {
                     navHostController.popBackStack()
                     navHostController.navigate(NavigationRoute.Home.route)
+                },
+                onSignUp = {
+                    navHostController.navigate(NavigationRoute.Signup.route)
+                }
+            )
+        }
+
+        composable(NavigationRoute.Signup.route) {
+            SignUpScreen(
+                onSignIn = {
+                    navHostController.navigate(NavigationRoute.Home.route) {
+                        popUpTo(navHostController.graph.id) {
+                            inclusive = true
+                        }
+                    }
+                },
+                onLogin = {
+                    navHostController.popBackStack()
                 }
             )
         }
