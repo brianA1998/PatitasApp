@@ -38,9 +38,9 @@ import com.example.patitasapp.core.presentation.PatitasTitle
 @Composable
 fun SignupForm(state: SignUpState, onEvent: (SignupEvent) -> Unit, modifier: Modifier = Modifier) {
     val focusManager = LocalFocusManager.current
-    Box(modifier = modifier, contentAlignment = Alignment.Center) {
+    Box(modifier = modifier.background(Color(0xFFFFF3E9)), contentAlignment = Alignment.Center) {
         Column(
-            modifier = Modifier.background(Color.White, shape = RoundedCornerShape(20.dp)),
+            modifier = Modifier.background(Color.Transparent, shape = RoundedCornerShape(20.dp)),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             PatitasTitle("Create your account")
@@ -66,7 +66,8 @@ fun SignupForm(state: SignUpState, onEvent: (SignupEvent) -> Unit, modifier: Mod
                     autoCorrect = false,
                     keyboardType = KeyboardType.Email,
                     imeAction = ImeAction.Next
-                )
+                ),
+                backgroundColor = Color.White
             )
 
             PatitasPasswordTextField(
@@ -88,8 +89,11 @@ fun SignupForm(state: SignUpState, onEvent: (SignupEvent) -> Unit, modifier: Mod
                     autoCorrect = false,
                     keyboardType = KeyboardType.Password,
                     imeAction = ImeAction.Done
-                )
+                ),
+                backgroundColor = Color.White
             )
+
+            Spacer(modifier = Modifier.height(12.dp))
 
             PatitasButton(
                 text = "Create account",
@@ -100,6 +104,10 @@ fun SignupForm(state: SignUpState, onEvent: (SignupEvent) -> Unit, modifier: Mod
             ) {
                 onEvent(SignupEvent.SignUp)
             }
+
+
+            Spacer(modifier = Modifier.height(12.dp))
+
 
             TextButton(onClick = { onEvent(SignupEvent.LogIn) }) {
                 Text(

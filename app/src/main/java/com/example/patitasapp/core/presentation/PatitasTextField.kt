@@ -43,7 +43,7 @@ fun PatitasPasswordTextField(
     isEnabled: Boolean = true,
     keyboardOptions: KeyboardOptions = KeyboardOptions(),
     keyboardActions: KeyboardActions = KeyboardActions(),
-    backgroundColor: Color = MaterialTheme.colorScheme.background
+    backgroundColor: Color = Color(0xFFFFF3E9)
 ) {
     PatitasTextField(
         value = value,
@@ -74,7 +74,7 @@ fun PatitasTextField(
     isEnabled: Boolean = true,
     keyboardOptions: KeyboardOptions = KeyboardOptions(),
     keyboardActions: KeyboardActions = KeyboardActions(),
-    backgroundColor: Color = MaterialTheme.colorScheme.background
+    backgroundColor: Color = Color(0xFFFFF3E9)
 ) {
 
     var hidePassword by remember { mutableStateOf(true) }

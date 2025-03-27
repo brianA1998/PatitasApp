@@ -50,18 +50,6 @@ fun LoginScreen(
                     scaleY = 1.27f
                 )
         )
-        Spacer(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(
-                    Brush.verticalGradient(
-                        colors = listOf(
-                            Color.Transparent,
-                            MaterialTheme.colorScheme.background,
-                        )
-                    )
-                )
-        )
 
 
         Column(modifier = Modifier.fillMaxSize(), verticalArrangement = Arrangement.SpaceBetween) {

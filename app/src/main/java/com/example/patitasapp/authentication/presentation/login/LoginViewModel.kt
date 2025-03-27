@@ -16,7 +16,7 @@ class LoginViewModel @Inject constructor(
     private val loginUseCases: LoginUseCases
 ) : ViewModel() {
 
-     var state by mutableStateOf(LoginState())
+    var state by mutableStateOf(LoginState())
         private set
 
     fun onEvent(event: LoginEvent) {

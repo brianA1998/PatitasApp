@@ -48,7 +48,8 @@ fun LoginForm(state: LoginState, onEvent: (LoginEvent) -> Unit, onSignUp: () -> 
         ) {
             Text(
                 "Login in with email", modifier = Modifier.padding(12.dp),
-                color = Color.Black
+                style = MaterialTheme.typography.bodyLarge,
+                color = MaterialTheme.colorScheme.tertiary
             )
 
             Divider(

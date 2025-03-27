@@ -26,7 +26,7 @@ fun PatitasButton(
         enabled = isEnabled,
         shape = RoundedCornerShape(8.dp),
         colors = ButtonDefaults.buttonColors(
-            containerColor = Color(0xFF354F52)
+            containerColor = Color(0xFF827397)
         )
     ) {
         Text(
