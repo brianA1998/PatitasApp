@@ -49,7 +49,7 @@ fun SignupForm(state: SignUpState, onEvent: (SignupEvent) -> Unit, modifier: Mod
 
             PatitasTextField(
                 value = state.email,
-                onValueChange = { onEvent(SignupEvent.EmailChange(state.email)) },
+                onValueChange = { onEvent(SignupEvent.EmailChange(it)) },
                 placeholder = "Email",
                 contentDescription = "Enter email",
                 modifier = Modifier
