@@ -3,7 +3,9 @@ package com.example.patitasapp.authentication.presentation.login.components
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
@@ -47,7 +49,8 @@ fun LoginForm(state: LoginState, onEvent: (LoginEvent) -> Unit, onSignUp: () -> 
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                "Login in with email", modifier = Modifier.padding(12.dp),
+                "Login in with email",
+                modifier = Modifier.padding(12.dp),
                 style = MaterialTheme.typography.bodyLarge,
                 color = MaterialTheme.colorScheme.tertiary
             )
@@ -131,7 +134,6 @@ fun LoginForm(state: LoginState, onEvent: (LoginEvent) -> Unit, onSignUp: () -> 
                         }
                     },
                     color = MaterialTheme.colorScheme.tertiary,
-                    textDecoration = TextDecoration.Underline
                 )
             }
         }

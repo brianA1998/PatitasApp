@@ -22,6 +22,5 @@ fun PatitasTitle(
             color = MaterialTheme.colorScheme.tertiary
         ),
         textAlign = TextAlign.Center,
-        fontFamily = FontFamily.SansSerif
     )
 }
