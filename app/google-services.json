@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "243985785738",
+    "project_id": "patitasapp-82ba5",
+    "storage_bucket": "patitasapp-82ba5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:243985785738:android:6d13bf13dd7be200f09e73",
+        "android_client_info": {
+          "package_name": "com.example.patitasapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWEesIOdovZA-vaWTpzJkSJn1wEluybI0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

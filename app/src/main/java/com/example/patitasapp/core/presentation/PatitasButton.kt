@@ -13,7 +13,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun PatitaButton(
+fun PatitasButton(
     text: String,
     modifier: Modifier = Modifier,
     isEnabled: Boolean = true,
@@ -26,7 +26,7 @@ fun PatitaButton(
         enabled = isEnabled,
         shape = RoundedCornerShape(8.dp),
         colors = ButtonDefaults.buttonColors(
-            containerColor = Color(0xFF354F52)
+            containerColor = Color(0xFFB827397)
         )
     ) {
         Text(
